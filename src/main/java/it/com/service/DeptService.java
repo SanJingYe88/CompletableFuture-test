@@ -36,6 +36,19 @@ public class DeptService {
         }
     }
 
+    public Dept getByIdSleepThrow(Integer id) {
+        log.info("进入 getByIdSleepThrow, id:{}", id);
+        try {
+            log.info("执行中，3s后完成...");
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        // 直接 throw
+        log.info("执行出错了...");
+        throw new RuntimeException("getByIdSleepThrow");
+    }
+
     public void sendMQSleep() {
         log.info("进入 sendMQSleep");
         try {
@@ -65,5 +78,7 @@ public class DeptService {
             e.printStackTrace();
         }
     }
+
+
 }
 
